@@ -1,0 +1,9 @@
+{
+    "users": [
+        {
+            "userID":"2750989993",
+            "userData":"answers=%5B%220%22%2C%220%22%2C%220%22%2C%220%22%2C%222%22%2C%220%22%2C%221%22%2C%221%22%2C%220%22%2C%221%22%5D&latitude=30.825140245225693&longitude=104.18697509765624&country=%E4%B8%AD%E5%9B%BD&city=%E6%88%90%E9%83%BD%E5%B8%82&district=%E6%96%B0%E9%83%BD%E5%8C%BA&province=%E5%9B%9B%E5%B7%9D%E7%9C%81&township=%E6%96%B0%E9%83%BD%E8%A1%97%E9%81%93&street=%E5%A4%A7%E5%AD%A6%E8%B7%AF&areacode=510114",
+            "userCK":"aad62a1b277b4a4d9e5a54b2c63a2a31"
+        }
+    ]
+}
