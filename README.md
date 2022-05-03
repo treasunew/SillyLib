@@ -1,7 +1,7 @@
 [![Treasunew's GitHub stats](https://github-readme-stats.vercel.app/api?username=treasunew)](https://github.com/anuraghazra/github-readme-stats)
 # SillyLib
-自用的插件、软件、脚本集合
-[TelegramGroup](https://t.me/PorterTree)
+自用的插件、软件、脚本集合  
+TG群[TelegramGroup](https://t.me/PorterTree)
 #### 插件
 * Loon
 * QX
