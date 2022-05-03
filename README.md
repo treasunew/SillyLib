@@ -1,4 +1,4 @@
-[![Treasunew's GitHub stats](https://github-readme-stats.vercel.app/api?username=treasunew)](https://github.com/anuraghazra/github-readme-stats)
+[![Treasunew's GitHub stats](https://github-readme-stats.vercel.app/api?username=treasunew&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
 # SillyLib
 自用的插件、软件、脚本集合  
 TG群[TelegramGroup](https://t.me/PorterTree)
