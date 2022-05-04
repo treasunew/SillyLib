@@ -31,7 +31,7 @@
       ],
       "author": "@treasunew",
       "repo": "https://github.com/treasunew/SillyLib",
-      "script": "https://github.com/treasunew/SillyLib/blob/main/JavaScript/ksjsb.js"
+      "script": "https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/ksjsb.js"
     }
   ]
 }
