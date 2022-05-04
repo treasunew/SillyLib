@@ -1,0 +1,39 @@
+{
+  "id": "treasunew.app.sub",
+  "name": "lxk0301脚本订阅",
+  "author": "@treasunew",
+  "icon": "https://imgtu.com/i/OZKmO1",
+  "repo": "https://github.com/treasunew/SillyLib/tree/main/JavaScript",
+  "apps": [
+    {
+      "id": "ksjsbCookie",
+      "name": "快手极速版",
+      "keys": ["ksjsbCookie"],
+      "descs_html": [
+        "请勿随意在输入框修改内容，建议通过脚本去获取cookie，若要修改，请按照JSON 格式修改（<a href=\"https://www.bejson.com/json/format\">可使用此JSON校验</a> ，或点击右上角按钮🔘进行校验(如有弹窗提示则为异常JSON)）。",
+        "示例：[{\"ksjsbCookie\":\"kuaishou.api_st=xxxxxx\",\"ksjsbCookie\":\"kuaishou.api_st=xxxxxx\"}]",
+        "脚本地址【<a href=\"https://gitee.com/lxk0301/jd_scripts/raw/master/JD_extra_cookie.js\">快手极速版</a>】",
+        "使用方式：自己抓包获取相应的字段。多账号用@连接",
+        "注：本文件改自lxk大佬"
+      ],
+      "settings": [
+        {
+          "id": "ksjsbCookie",
+          "name": "CK 列表",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "rows": 8,
+          "desc": "ksjsbCookie"
+        }
+      ],
+      "icons": [
+        "https://imgtu.com/i/OZKmO1",
+        "https://imgtu.com/i/OZKmO1"
+      ],
+      "author": "@treasunew",
+      "repo": "https://github.com/treasunew/SillyLib",
+      "script": "https://github.com/treasunew/SillyLib/blob/main/JavaScript/ksjsb.js"
+    }
+  ]
+}
