@@ -2,7 +2,7 @@
   "id": "treasunew.app.sub",
   "name": "快手脚本订阅",
   "author": "@treasunew",
-  "icon": "https://imgtu.com/i/OZKmO1",
+  "icon": "https://avatars.githubusercontent.com/u/104483693?v=4",
   "repo": "https://github.com/treasunew/SillyLib/tree/main/JavaScript",
   "apps": [
     {
@@ -28,8 +28,8 @@
         }
       ],
       "icons": [
-        "https://imgtu.com/i/OZKmO1",
-        "https://imgtu.com/i/OZKmO1"
+        "https://cdn.jsdelivr.net/gh/conceay/self-bin@main/Pic/ksjsb.jpg",
+        "https://cdn.jsdelivr.net/gh/conceay/self-bin@main/Pic/ksjsb.jpg"
       ],
       "author": "@treasunew",
       "repo": "https://github.com/treasunew/SillyLib",
