@@ -1,5 +1,5 @@
 // [rule: 校园 ?]
-var CK = '0626e4ab43104413ad3fcfd490f4df1b';
+var CK = '你的CK';
 var param = 'answers=["0","0","0","2","0","1","1","0"]&latitude=31.775354385375977&longitude=107.56233215332031&country=%E4%B8%AD%E5%9B%BD&city=%E8%BE%BE%E5%B7%9E%E5%B8%82&district=%E4%B8%87%E6%BA%90%E5%B8%82&province=%E5%9B%9B%E5%B7%9D%E7%9C%81&township=%E6%B2%B3%E5%8F%A3%E9%95%87&street=&areacode=511781';
 
 //var status = 'keep-alive';
