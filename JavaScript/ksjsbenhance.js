@@ -227,8 +227,8 @@ let _0x134a17 = new Date(),
     _0x459e63 = 1.07,
     _0x2e716e = 0,
     _0x5bc515 = "ksjsb",
-    _0x180c0c = "https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/ks.json",
-    ksjsbjk = "https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/enhance.json",
+    _0x180c0c = "https://ghproxy.com/https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/ks.json",
+    ksjsbjk = "https://ghproxy.com/https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/enhance.json",
     _0x75eec0 = "https://127.0.0.1/";
 
 class _0x9d8dda {
