@@ -153,7 +153,9 @@ const _0x1eb2d5 = {
   'pageId': 11101,
   'posId': 4683,
   'subPageId': 100013628,
-  'name': "获取抽奖次数视频"
+  'name': "获取抽奖次数视频",
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
+
 },
       _0x458f20 = {
   'extParams': "56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd",
@@ -161,7 +163,8 @@ const _0x1eb2d5 = {
   'pageId': 11101,
   'posId': 4685,
   'subPageId': 100013630,
-  'name': "抽奖视频161-213"
+  'name': "抽奖视频161-213",
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0x124c4a = {
   'extParams': "56dfe31594b858e69ef613f5e97227fb67b973ad1394855c549442d15702f96393178eaeef5635134bb7e4ff97e69218c1f18455baf645dbaef685b7bf30c0914ea53ddcde26b2fa67b888203dab0fd4",
@@ -169,7 +172,8 @@ const _0x1eb2d5 = {
   'pageId': 11101,
   'posId': 4684,
   'subPageId': 100013629,
-  'name': '抽奖视频161-100'
+  'name': '抽奖视频161-100',
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0x37f16f = {
   'extParams': "56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd",
@@ -177,7 +181,8 @@ const _0x1eb2d5 = {
   'pageId': 11101,
   'posId': 4684,
   'subPageId': 100013629,
-  'name': "抽奖视频11-100"
+  'name': "抽奖视频11-100",
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0x10efec = {
   'extParams': '56dfe31594b858e69ef613f5e97227fbcb18b65ce67342c03fd16da46f5dd52b0b37201ad9cf67cdfd05f8c9a5234ae7b24624bc881a52c3c7e6ab22e32f6fd2c0e52c6c0e9b7e312f021e0d41162e7f',
@@ -185,7 +190,8 @@ const _0x1eb2d5 = {
   'pageId': 11101,
   'posId': 4684,
   'subPageId': 100013629,
-  'name': "抽奖视频11-100"
+  'name': "抽奖视频11-100",
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0x385181 = {
   'extParams': "60869a9fd2ab63f5e0b1725d059da31f7d3ed3046658438ee204a153c3bc47189ccf268b22e603b6750780c9647e7a12b3027381e11da27b234311bccfd4a67bb892f889a4020ceae4f4e102cc50c327",
@@ -193,7 +199,8 @@ const _0x1eb2d5 = {
   'pageId': 100012068,
   'posId': 6765,
   'subPageId': 100015089,
-  'name': "邀请页视频(实际是100金币)"
+  'name': "邀请页视频(实际是100金币)",
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0xfcb1d2 = {
   'extParams': "56dfe31594b858e69ef613f5e97227fbd5f9da00aa5144df8830a5781ae07d7cfaf4d95abc2510c950f99404a9e0bf62f5b5765a867c385685e0570ed76b858a159dacd55e41e4a9813db4e619a8b092",
@@ -201,7 +208,8 @@ const _0x1eb2d5 = {
   'pageId': 100012068,
   'posId': 6765,
   'subPageId': 100015089,
-  'name': '直播任务'
+  'name': '直播任务',
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0x11da17 = {
   'extParams': "56dfe31594b858e69ef613f5e97227fbd5f9da00aa5144df8830a5781ae07d7cfaf4d95abc2510c950f99404a9e0bf62f5b5765a867c385685e0570ed76b858a159dacd55e41e4a9813db4e619a8b092",
@@ -209,7 +217,8 @@ const _0x1eb2d5 = {
   'pageId': 100012068,
   'posId': 6765,
   'subPageId': 100015089,
-  'name': "签到翻倍视频2"
+  'name': "签到翻倍视频2",
+  'sign':"5a54eedde4d4ea613d0a573ef164951d4f412269e3350a8b54f0395c5a455e70"
 },
       _0x10d9f8 = {
   'luckdrawNum_161': _0x3355c4,
