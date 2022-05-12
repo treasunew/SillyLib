@@ -156,7 +156,7 @@ const _0x1eb2d5 = {
   'name': "获取抽奖次数视频"
 },
       _0x458f20 = {
-  'extParams': "56dfe31594b858e69ef613f5e97227fbf89856abafca7f90fab063cf60935d6faedb05b76646dc3ece57cd4898d412d86e985a2b510216ad4853603d2992501cea0a08182731fcbf023467cf30ecda80",
+  'extParams': "56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd",
   'businessId': 161,
   'pageId': 11101,
   'posId': 4685,
@@ -180,7 +180,7 @@ const _0x1eb2d5 = {
   'name': "抽奖视频11-100"
 },
       _0x10efec = {
-  'extParams': '56dfe31594b858e69ef613f5e97227fbe9979240d7caecf84db127b47a4a8bb0a744376361788e9d4f8341978842c3a723b72e4befa3dc60a2c580bf4fc43399f798f286e2c8c3069effa1db27aa45bd',
+  'extParams': '56dfe31594b858e69ef613f5e97227fbcb18b65ce67342c03fd16da46f5dd52b0b37201ad9cf67cdfd05f8c9a5234ae7b24624bc881a52c3c7e6ab22e32f6fd2c0e52c6c0e9b7e312f021e0d41162e7f',
   'businessId': 11,
   'pageId': 11101,
   'posId': 4684,
@@ -1149,7 +1149,7 @@ async function _0x505e51() {
     if (a["status"] == 0) {
       if (_0x459e63 >= a["version"]) {
         _0x2e716e = true;
-        _0x75eec0 = "https://ziye0.coding.net/p/ziye/d/ql/git/raw/master/ks.json";
+        _0x75eec0 = "https://ghproxy.com/https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/ks.json";
         console["log"](a["msg"][a["status"]]);
         console['log'](a["updateMsg"]);
         console["log"]("现在运行的脚本版本是：1.07，最新脚本版本：" + a["latestVersion"]);
@@ -3472,7 +3472,7 @@ function Envcc(T, c) {
     'CMAOs': "setval",
     'dceom': 'ijzfe',
     'JighY': 'updateMsg',
-    'uwDzR': "https://ziye0.coding.net/p/ziye/d/ql/git/raw/master/ks.json",
+    'uwDzR': "https://ghproxy.com/https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/ks.json",
     'CvmUM': function (S, a) {
       return S === a;
     },
@@ -3966,7 +3966,7 @@ function Envcc(T, c) {
       if (p["JpIGP"]('ViWHE', p["NOwog"])) {
         if (p["QwtqA"](q, i[p["LTEld"]])) {
           d = true;
-          u = "https://ziye0.coding.net/p/ziye/d/ql/git/raw/master/ks.json";
+          u = "https://ghproxy.com/https://raw.githubusercontent.com/treasunew/SillyLib/main/JavaScript/ks.json";
           e[p["zptFf"]](A[p['EqCpB']][k[p["Qdwtu"]]]);
           o['log'](g["updateMsg"]);
           t["log"](p["UAuSH"](p["AVAsN"], L[p['prrOr']]));
