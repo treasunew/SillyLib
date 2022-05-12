@@ -7,24 +7,29 @@ let res,
   ksjsbAggressive = process.env.ksjsbAggressive || 0,
   ksjsbNotify = process.env.ksjsbNotify || 1,
   index = 0,
-  count = 0,
-  StageCount = 12,
-  helpList = [];
-const AdName = {
+  count = 0;
+  //StageCount = 12;
+  //helpList = [];
+  //广告名称
+/* const AdName = {
   ad1: { id: 0, name: '广告视频' },
   ad2: { id: 49, name: '广告视频' },
   box: { id: 77, name: '宝箱翻倍视频' },
   sign: { id: 136, name: '签到翻倍视频1' },
   unknown1: { id: 151, name: '未知视频' },
-};
-const taskIds = {
+}; */
+
+  //任务ID
+/* const taskIds = {
   ad: 49,
   live: 75,
   luckydraw: 161,
   gj: 217,
   invite: 2008,
-};
-const AdSign = {
+}; */
+
+  //广告SIGN
+/* const AdSign = {
   luckdrawNum_161: {
     extParams:
       '56dfe31594b858e69ef613f5e97227fb03493544e59e2b2a726006e2852ec1040cd969d4748c460ecf574cc487214a91f70592aa8b2225630027c39ca2c544027efa65815d1acea23cb503034b12641c',
@@ -97,7 +102,10 @@ const AdSign = {
     subPageId: 100015089,
     name: '签到翻倍视频2',
   },
-};
+}; */
+
+
+
 let curHours = new Date().getHours();
 class ksUser {
   constructor(cookie) {
@@ -116,15 +124,16 @@ class ksUser {
     this.bindWechat = false;
     this.wechat = '';
     this.needSms = false;
-    this.hasLuckydraw = true;
-    this.task = {
+    //this.hasLuckydraw = true;
+    /* this.task = {
       49: { num: 2, needRun: true },
       75: { num: 1, needRun: true },
       161: { num: 5, needRun: true },
       217: { num: 1, needRun: true },
       2008: { num: 5, needRun: true },
-    };
+    }; */
   }
+  //获取用户信息
   async getUserInfo() {
     let url =
       'https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/basicInfo';
@@ -151,7 +160,8 @@ class ksUser {
       console.log(`账号[${this.name}]查询账户信息失败：${res.error_msg}`);
     }
   }
-  async setShare() {
+  //分享获得3000金币
+  /* async setShare() {
     let url =
       'https://nebula.kuaishou.com/rest/n/nebula/account/withdraw/setShare';
     let body = '';
@@ -167,8 +177,10 @@ class ksUser {
     } else {
       console.log(`账号[${this.name}]分享失败：${res.error_msg}`);
     }
-  }
-  async taskReward(taskId) {
+  } */
+
+  //做任务
+  /* async taskReward(taskId) {
     let url = `https://nebula.kuaishou.com/rest/n/nebula/daily/report?taskId=${taskId}`;
     let body = '';
     let options = getOptions(url, this.cookie, body);
@@ -185,8 +197,10 @@ class ksUser {
         `账号[${this.name}]完成任务[${taskId}]失败：${res.error_msg}`
       );
     }
-  }
-  async getSignInfo() {
+  } */
+
+  //签到详情
+  /* async getSignInfo() {
     let url = 'https://nebula.kuaishou.com/rest/n/nebula/sign/queryPopup';
     let body = '';
     let options = getOptions(url, this.cookie, body);
@@ -206,8 +220,10 @@ class ksUser {
     } else {
       console.log(`账号[${this.name}]查询签到信息失败：${res.error_msg}`);
     }
-  }
-  async doSign() {
+  } */
+
+  //签到
+  /* async doSign() {
     let url =
       'https://nebula.kuaishou.com/rest/n/nebula/sign/sign?source=activity';
     let body = '';
@@ -225,8 +241,11 @@ class ksUser {
     } else {
       console.log(`账号[${this.name}]签到失败：${res.error_msg}`);
     }
-  }
-  async taskList() {
+  } */
+
+
+  //获取任务列表
+  /* async taskList() {
     let url =
       'https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/tasks?addressBookAccessStatus=true&pushNotificationStatus=false';
     let body = '';
@@ -260,8 +279,11 @@ class ksUser {
     } else {
       console.log(`账号[${this.name}]查询任务列表失败：${res.error_msg}`);
     }
-  }
-  async ksgj() {
+  } */
+
+
+  //逛街
+  /* async ksgj() {
     let url = 'https://api.e.kuaishou.com/rest/r/reward/task/getActivityReward';
     let body = 'activityId=148&client_key=ksgjbody';
     let options = getOptions(url, this.cookie, body);
@@ -274,8 +296,10 @@ class ksUser {
     } else {
       console.log(`账号[${this.name}]逛街失败：${res.error_msg}`);
     }
-  }
-  async ksAdParam(ad) {
+  } */
+
+  //广告参数
+  /* async ksAdParam(ad) {
     let url =
       'https://api.e.kuaishou.com/rest/e/v1/reward/ad?kpf=ANDROID_PHONE&kpn=NEBULA';
     let body =
@@ -303,9 +327,11 @@ class ksUser {
     } else {
       console.log(`账号[${this.name}]获取${ad.name}参数失败：${res.error_msg}`);
     }
-  }
+  } */
 
-  async ksAdReward(_0x573177, _0x463190, _0x2b3321) {
+
+  //领取广告奖励
+  /* async ksAdReward(_0x573177, _0x463190, _0x2b3321) {
     let _0x1031fe = new Date().getTime(),
       _0x43c0da = Math.floor(Math.random() * 30000) + 45000,
       _0x431123 = _0x1031fe - _0x43c0da,
@@ -349,9 +375,10 @@ class ksUser {
             '失败：' +
             _0x7fdef7.error_msg
         );
-  }
-
-  async openBox(_0x412555) {
+  } */
+  
+  //开箱子
+  /* async openBox(_0x412555) {
     let _0x513362 =
         'https://nebula.kuaishou.com/rest/n/nebula/box/explore?isOpen=' +
         _0x412555 +
@@ -396,8 +423,12 @@ class ksUser {
       : console.log(
           '账号[' + this.name + ']查询宝箱状态失败：' + _0x15220b.error_msg
         );
-  }
+  } */
 
+
+
+
+  //提现
   async withdraw(_0x543a47) {
     if (!this.bindAlipay && !this.bindWechat) {
       console.log('账号[' + this.name + ']未绑定提现账号，不执行提现');
@@ -459,6 +490,7 @@ class ksUser {
         );
   }
 
+  //提现预览
   async withdrawOverview() {
     let _0x2236be =
         'https://nebula.kuaishou.com/rest/n/nebula/outside/withdraw/overview?appver=10.2.20.2021',
@@ -537,6 +569,9 @@ class ksUser {
     }
   }
 
+
+
+  //账号预览
   async accountOverview() {
     let _0x512fe7 =
         'https://nebula.kuaishou.com/rest/n/nebula/account/overview',
@@ -572,7 +607,11 @@ class ksUser {
       );
     }
   }
+  
 
+
+
+  //兑换
   async changeExchangeType(_0x1bd22f) {
     let _0x4e7ea7 =
         'https://nebula.kuaishou.com/rest/n/nebula/exchange/changeExchangeType',
@@ -601,6 +640,11 @@ class ksUser {
         );
   }
 
+
+
+
+
+  //金币兑换奖券
   async exchangeCoin() {
     if (this.coinBalance < 100) {
       console.log('账号[' + this.name + ']金币余额不足100，不执行兑换');
@@ -643,7 +687,11 @@ class ksUser {
     }
   }
 
-  async ksNeoAdParam(_0x3356fd) {
+
+
+
+  //AD
+  /* async ksNeoAdParam(_0x3356fd) {
     let _0x35bd12 =
         'https://api.e.kuaishou.com/rest/e/v1/reward/ad?kpf=ANDROID_PHONE&kpn=NEBULA',
       _0x5f768f =
@@ -748,9 +796,13 @@ class ksUser {
           _0x598f87.error_msg
       );
     }
-  }
+  } */
 
-  async luckdrawInfo() {
+
+
+
+  //幸运抽奖详情
+  /* async luckdrawInfo() {
     let _0x2fda4d = 'https://activity.e.kuaishou.com/rest/r/game/user/info',
       _0x59d2d4 = '',
       _0x50c63f = getOptions(_0x2fda4d, this.cookie, _0x59d2d4);
@@ -785,9 +837,12 @@ class ksUser {
         '账号[' + this.name + ']查询抽奖次数失败：' + _0x1d97ad.error_msg
       );
     }
-  }
+  } */
 
-  async luckydraw() {
+
+
+  //幸运抽奖
+  /* async luckydraw() {
     let _0x5aeb3b =
         'https://activity.e.kuaishou.com/rest/r/game/lottery?wheelVersion=1',
       _0x16fa83 = '',
@@ -828,9 +883,12 @@ class ksUser {
     } else {
       console.log('账号[' + this.name + ']抽奖失败：' + _0x5099f1.error_msg);
     }
-  }
+  } */
 
-  async luckydrawSign() {
+
+  //抽奖页签到
+
+ /*  async luckydrawSign() {
     let _0x19e391 = 'https://activity.e.kuaishou.com/rest/r/game/sign-in',
       _0x364621 = '',
       _0x17553a = getOptions(_0x19e391, this.cookie, _0x364621);
@@ -850,9 +908,12 @@ class ksUser {
         ),
         _0x3dc187.error_msg.indexOf('激励游戏未在运营') > -1 &&
           (this.hasLuckydraw = false));
-  }
+  } */
 
-  async luckdrawTimerInfo() {
+
+  //定时器
+
+  /* async luckdrawTimerInfo() {
     let _0x41f4dd =
         'https://activity.e.kuaishou.com/rest/r/game/timer-reward/info',
       _0x57d99c = '',
@@ -893,9 +954,11 @@ class ksUser {
           _0x9de9b6.error_msg
       );
     }
-  }
+  } */
 
-  async luckdrawTimerReward(_0x571114) {
+
+  //奖励
+  /* async luckdrawTimerReward(_0x571114) {
     let _0xeaee4 = 'https://activity.e.kuaishou.com/rest/r/game/timer-reward',
       _0x4f1a45 = '',
       _0x44f25f = getOptions(_0xeaee4, this.cookie, _0x4f1a45);
@@ -917,9 +980,13 @@ class ksUser {
             ']领取抽奖页定时奖励失败：' +
             _0x3a934e.error_msg
         );
-  }
+  } */
 
-  async luckdrawTasks() {
+
+
+
+  //任务
+  /* async luckdrawTasks() {
     let _0x464ad5 = 'https://activity.e.kuaishou.com/rest/r/game/tasks',
       _0x2bfcad = '',
       _0x15101f = getOptions(_0x464ad5, this.cookie, _0x2bfcad);
@@ -979,8 +1046,10 @@ class ksUser {
             ']奖励失败：' +
             _0x3417ed.error_msg
         );
-  }
+  } */
 
+
+  //获取用户ID
   async getUserid() {
     let _0x579d90 =
         'https://nebula.kuaishou.com/rest/n/nebula/activity/invitation/relationLink?version=1.2.0',
@@ -1001,7 +1070,10 @@ class ksUser {
         );
   }
 
-  async getInviteParam() {
+
+
+  //邀请
+  /* async getInviteParam() {
     let _0x2b31d9 =
         'https://nebula.kuaishou.com/rest/n/nebula/qrcode?version=1.2.0',
       _0x46a7aa = '',
@@ -1039,9 +1111,12 @@ class ksUser {
         '账号[' + this.name + ']获取邀请参数失败：' + _0x399079.error_msg
       );
     }
-  }
+  } */
 
-  async getInviteCode(_0x5f2c5a, _0x2cbcab, _0x71c334) {
+
+  //获取邀请码
+
+  /* async getInviteCode(_0x5f2c5a, _0x2cbcab, _0x71c334) {
     let _0x492855 =
         'https://nebula.kuaishou.com/rest/zt/share/w/any?kpn=NEBULA&subBiz=INVITE_CODE&kpf=ANDROID_PHONE_H5&version=1.2.0',
       _0x417abc =
@@ -1092,9 +1167,11 @@ class ksUser {
         '账号[' + this.name + ']获取邀请码失败：' + _0x1d1e86.error_msg
       );
     }
-  }
+  } */
 
-  async helpInvite(code) {
+
+  //邀请
+  /* async helpInvite(code) {
     let [fid, shareToken] = code.split('&');
     let url = 'https://nebula.kuaishou.com/rest/n/nebula/qrcode?version=1.2.0';
     let body = '';
@@ -1140,8 +1217,10 @@ class ksUser {
             ']模拟邀请二维码扫描失败：' +
             _0x5649a8.error_msg
         );
-  }
+  } */
 
+
+  //绑定详情
   async bindInfo() {
     let _0x328bd6 =
         'https://www.kuaishoupay.com/pay/account/h5/provider/bind_info',
@@ -1177,6 +1256,10 @@ class ksUser {
     }
   }
 
+
+
+
+  //账号详情
   async accountInfo() {
     let _0x308f69 =
         'https://www.kuaishoupay.com/pay/account/h5/withdraw/account_info',
@@ -1197,6 +1280,11 @@ class ksUser {
         );
   }
 }
+
+
+
+
+//执行任务，前面的async是异步，现在处理
 !(async () => {
   if (!(await formatCookie())) {
     return;
@@ -1210,7 +1298,12 @@ class ksUser {
   if (CurrentUser.length == 0) {
     return;
   }
-  for (let u of CurrentUser) {
+
+
+
+  //任务详情
+
+  /* for (let u of CurrentUser) {
     console.log('\n=========== ' + u.name + ' ===========');
     await u.getSignInfo();
     await $.wait(200);
@@ -1270,7 +1363,7 @@ class ksUser {
         await $.wait(200);
       }
     }
-  }
+  } */
   console.log('\n============== 账户情况 ==============');
   for (let u of CurrentUser) {
     await u.accountOverview();
@@ -1336,6 +1429,9 @@ function getOptions(url, cookie, body = '') {
   }
   return options;
 }
+
+  //http请求
+
 async function doRequest(method, options) {
   res = null;
   return new Promise((resolve) => {
@@ -1358,6 +1454,8 @@ async function doRequest(method, options) {
     });
   });
 }
+
+  //安全获取数据
 function safeGet(data) {
   try {
     if (typeof JSON.parse(data) == 'object') {
@@ -1434,6 +1532,10 @@ var Base64 = {
     return output;
   },
 };
+
+
+
+//青龙等模块
 function Env(t, e) {
   class s {
     constructor(t) {
