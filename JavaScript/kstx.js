@@ -12,7 +12,7 @@ let res,
   ksjsbCookie = process.env.ksjsbCookie || '',
   Users = [],
   ksjsbCash = process.env.ksjsbCash || '',
-  ksjsbWithdrawTime = process.env.ksjsbWithdrawTime || 15,
+  //ksjsbWithdrawTime = process.env.ksjsbWithdrawTime || 15,
   ksjsbAggressive = process.env.ksjsbAggressive || 0,
   ksjsbNotify = process.env.ksjsbNotify || 1,
   index = 0,
@@ -458,14 +458,14 @@ let res,
   if (ksjsbAggressive) {
     tips = '最大化提现';
   }
-  if (curHours == ksjsbWithdrawTime) {
+  if (curHours == curHours) {
     console.log(`提现时间，现在设置为${tips}`);
     for (let u of CurrentUser) {
       await u.withdrawOverview();
       await $.wait(200);
     }
   } else {
-    console.log(`非提现时间，现在设置为${ksjsbWithdrawTime}点${tips}`);
+    console.log(`非提现时间，现在设置为${curHours}点${tips}`);
   }
   /* if (helpList.length > 0) {
     for (let u of CurrentUser) {
