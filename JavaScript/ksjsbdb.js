@@ -404,7 +404,7 @@ class ksUser {
   }
   console.log('\n============== 🧨账号预览🧨 ==============');
   for (let user of Users) {
-    await u.accountOverview();
+    await user.accountOverview();
     await $.wait(200);
     // await user.getUserInfo();
     // await $.wait(500);
