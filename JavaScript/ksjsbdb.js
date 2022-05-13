@@ -38,7 +38,7 @@ class ksUser {
     this.needSms = false;
   }
   //获取用户信息
-  /* async getUserInfo() {
+  async getUserInfo() {
     let url =
       'https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/basicInfo';
     let body = '';
@@ -63,7 +63,7 @@ class ksUser {
     } else {
       console.log(`🎈${this.name}=>查询账户信息失败：${res.error_msg}`);
     }
-  } */
+  }
   //分享获得3000金币
   async setShare() {
     let url =
@@ -402,25 +402,30 @@ class ksUser {
   if (!(await formatCookie())) {
     return;
   }
-  console.log('\n============== 🧨账号预览🧨 ==============');
+  console.log('\n============== 🧨登录🧨 ==============');
   for (let user of Users) {
-    await user.accountOverview();
-    await $.wait(200);
-    // await user.getUserInfo();
-    // await $.wait(500);
+     await user.getUserInfo();
+     await $.wait(500);
   }
 
   let CurrentUser = Users.filter((u) => u.valid == true);
   if (CurrentUser.length == 0) {
     return;
   }
+  
   for (let u of CurrentUser) {
-    console.log('\n=========== ' + u.name + ' ===========');
+    console.log('\n=========== 🎈' + u.name + ' 🎈===========');
     await u.getSignInfo();
     await $.wait(200);
     //await u.openBox(false);
   }
-
+  console.log('\n============== 🎈账户情况🎈 ==============');
+  for (let u of CurrentUser) {
+    await u.accountOverview();
+    await $.wait(200);
+    await u.accountInfo();
+    await $.wait(200);
+  }
 
 })()
   .catch((error) => $.logErr(error))
