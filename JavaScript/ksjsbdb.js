@@ -8,13 +8,7 @@ let res,
   ksjsbNotify = process.env.ksjsbNotify || 1,
   index = 0,
   count = 0;
-  const AdName = {
-    ad1: { id: 0, name: '广告视频' },
-    ad2: { id: 49, name: '广告视频' },
-    box: { id: 77, name: '宝箱翻倍视频' },
-    sign: { id: 136, name: '签到翻倍视频1' },
-    unknown1: { id: 151, name: '未知视频' },
-  };
+
 
 
 
@@ -311,39 +305,6 @@ class ksUser {
       );
     }
   }
-
-
-
-
-  
-
-  //抽奖页签到
-
-  async luckydrawSign() {
-    let _0x19e391 = 'https://activity.e.kuaishou.com/rest/r/game/sign-in',
-      _0x364621 = '',
-      _0x17553a = getOptions(_0x19e391, this.cookie, _0x364621);
-
-    await doRequest('get', _0x17553a);
-    let _0x3dc187 = res;
-
-    if (!_0x3dc187) {
-      return;
-    }
-
-    _0x3dc187.result == 1
-      ? _0x3dc187.data.isShow &&
-        console.log('🎈' + this.name + '=>抽奖页签到成功')
-      : (console.log(
-          '🎈' + this.name + '=>查询抽奖签到情况失败：' + _0x3dc187.error_msg
-        ),
-        _0x3dc187.error_msg.indexOf('激励游戏未在运营') > -1 &&
-          (this.hasLuckydraw = false));
-  }
-
-
-
-
 
 
   //获取用户ID
