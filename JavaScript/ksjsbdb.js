@@ -8,7 +8,13 @@ let res,
   ksjsbNotify = process.env.ksjsbNotify || 1,
   index = 0,
   count = 0;
-  
+  const AdName = {
+    ad1: { id: 0, name: '广告视频' },
+    ad2: { id: 49, name: '广告视频' },
+    box: { id: 77, name: '宝箱翻倍视频' },
+    sign: { id: 136, name: '签到翻倍视频1' },
+    unknown1: { id: 151, name: '未知视频' },
+  };
 
 
 
@@ -48,7 +54,7 @@ class ksUser {
       this.coinBalance = res.data.totalCoin;
       this.allCash = res.data.allCash;
       console.log(
-        `✅${this.name}=>账户余额${this.cashBalance}元，${
+        `🟢${this.name}=>账户余额${this.cashBalance}元，${
           this.coinBalance
         }金币，未审核余额${Math.floor(
           parseFloat(this.allCash) - parseFloat(this.cashBalance)
@@ -69,7 +75,7 @@ class ksUser {
       return;
     }
     if (res.result == 1) {
-      console.log(`✅${this.name}=>准备分享得金币`);
+      console.log(`🟢${this.name}=>准备分享得金币`);
       await $.wait(200);
       await this.taskReward(122);
     } else {
@@ -87,7 +93,7 @@ class ksUser {
     }
     if (res.result == 1) {
       console.log(
-        `✅${this.name}=>完成任务[${taskId}]成功，获得${res.data.amount}金币`
+        `🟢${this.name}=>完成任务[${taskId}]成功，获得${res.data.amount}金币`
       );
     } else {
       console.log(
@@ -106,7 +112,7 @@ class ksUser {
     }
     if (res.result == 1) {
       let todaySigned = res.data.nebulaSignInPopup.todaySigned;
-      console.log(`✅${this.name}=>今天${todaySigned ? '已' : '未'}签到`);
+      console.log(`🟢${this.name}=>今天${todaySigned ? '已' : '未'}签到`);
       if (!todaySigned) {
         await $.wait(200);
         await this.doSign();
@@ -130,7 +136,7 @@ class ksUser {
       return;
     }
     if (res.result == 1) {
-      console.log(`✅${this.name}=>签到成功：${res.data.toast}`);
+      console.log(`🟢${this.name}=>签到成功：${res.data.toast}`);
       await $.wait(200);
     } else {
       console.log(`🛑${this.name}=>签到失败：${res.error_msg}`);
@@ -159,7 +165,7 @@ class ksUser {
         ? _0x15220b.data.commonAwardPopup &&
           _0x15220b.data.commonAwardPopup.awardAmount
           ? (console.log(
-              '✅' +
+              '🟢' +
                 this.name +
                 '=>开宝箱获得' +
                 _0x15220b.data.commonAwardPopup.awardAmount +
@@ -212,7 +218,7 @@ class ksUser {
 
     _0x4df55c.result == 1
       ? console.log(
-          '✅' +
+          '🟢' +
             this.name +
             '=>兑换方式更改成功，目前兑换方式为：' +
             _0x1fdd87
@@ -254,7 +260,7 @@ class ksUser {
         _0xd2629a = Math.floor(this.coinBalance / 100) / 100;
 
       console.log(
-        '✅' +
+        '🟢' +
           this.name +
           '=>兑换金币成功，将' +
           _0x1e5bfa +
@@ -290,7 +296,7 @@ class ksUser {
 
     _0x3dc187.result == 1
       ? _0x3dc187.data.isShow &&
-        console.log('✅' + this.name + '=>抽奖页签到成功')
+        console.log('🟢' + this.name + '=>抽奖页签到成功')
       : (console.log(
           '🛑' + this.name + '=>查询抽奖签到情况失败：' + _0x3dc187.error_msg
         ),
@@ -360,7 +366,7 @@ class ksUser {
 
     _0x3a934e.result == 1
       ? console.log(
-          '✅' + this.name + '=>领取抽奖页定时奖励获得' + _0x571114 + '金币'
+          '🟢' + this.name + '=>领取抽奖页定时奖励获得' + _0x571114 + '金币'
         )
       : console.log(
           '🛑' +
