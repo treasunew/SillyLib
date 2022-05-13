@@ -38,7 +38,7 @@ class ksUser {
     this.needSms = false;
   }
   //获取用户信息
-  async getUserInfo() {
+  /* async getUserInfo() {
     let url =
       'https://nebula.kuaishou.com/rest/n/nebula/activity/earn/overview/basicInfo';
     let body = '';
@@ -61,9 +61,9 @@ class ksUser {
         )}元`
       );
     } else {
-      console.log(`🛑${this.name}=>查询账户信息失败：${res.error_msg}`);
+      console.log(`🎈${this.name}=>查询账户信息失败：${res.error_msg}`);
     }
-  }
+  } */
   //分享获得3000金币
   async setShare() {
     let url =
@@ -79,7 +79,7 @@ class ksUser {
       await $.wait(200);
       await this.taskReward(122);
     } else {
-      console.log(`🛑${this.name}=>分享失败：${res.error_msg}`);
+      console.log(`🎈${this.name}=>分享失败：${res.error_msg}`);
     }
   }
 //做任务
@@ -97,7 +97,7 @@ class ksUser {
       );
     } else {
       console.log(
-        `🛑${this.name}=>完成任务[${taskId}]失败：${res.error_msg}`
+        `🎈${this.name}=>完成任务[${taskId}]失败：${res.error_msg}`
       );
     }
   }
@@ -120,7 +120,7 @@ class ksUser {
         await this.setShare();
       }
     } else {
-      console.log(`🛑${this.name}=>查询签到信息失败：${res.error_msg}`);
+      console.log(`🎈${this.name}=>查询签到信息失败：${res.error_msg}`);
     }
   }
   
@@ -138,15 +138,50 @@ class ksUser {
     if (res.result == 1) {
       console.log(`${this.name}=>签到成功：${res.data.toast}`);
       await $.wait(200);
-      await this.ksAdParam(AdName.sign);
-      await $.wait(200);
     } else {
-      console.log(`🛑${this.name}=>签到失败：${res.error_msg}`);
+      console.log(`🎈${this.name}=>签到失败：${res.error_msg}`);
     }
   }
 
+
+
+  async accountOverview() {
+    let _0x512fe7 =
+        'https://nebula.kuaishou.com/rest/n/nebula/account/overview',
+      _0x251847 = '',
+      _0x39f16d = getOptions(_0x512fe7, this.cookie, _0x251847);
+
+    await doRequest('get', _0x39f16d);
+    let _0xa69994 = res;
+
+    if (!_0xa69994) {
+      return;
+    }
+
+    if (_0xa69994.result == 1) {
+      this.coinBalance = _0xa69994.data.coinBalance;
+      this.cashBalance = _0xa69994.data.cashBalance;
+      let _0x54aac5 = _0xa69994.data.exchangeCoinState;
+
+      console.log(
+        '🎈' +
+          this.name +
+          '=>账户余额' +
+          this.cashBalance +
+          '元，' +
+          this.coinBalance +
+          '金币'
+      );
+
+      _0x54aac5 == 2 && (await $.wait(200), await this.changeExchangeType(0));
+    } else {
+      console.log(
+        '🎈' + this.name + '=>查询账户信息失败：' + _0xa69994.error_msg
+      );
+    }
+  }
   
-  //开箱子
+/*   //开箱子,1金币懒得搞 
   async openBox(_0x412555) {
     let _0x513362 =
         'https://nebula.kuaishou.com/rest/n/nebula/box/explore?isOpen=' +
@@ -175,10 +210,10 @@ class ksUser {
             ),
             await $.wait(200),
             await this.ksAdParam(AdName.box))
-          : console.log('🛑' + this.name + '=>开宝箱没有获得金币')
+          : console.log('🎈' + this.name + '=>开宝箱没有获得金币')
         : _0x15220b.data.openTime > -1
         ? (console.log(
-            '🟡' +
+            '🎈' +
               this.name +
               '=>开宝箱冷却时间还有' +
               Math.floor(_0x15220b.data.openTime / 1000) +
@@ -186,13 +221,13 @@ class ksUser {
           ),
           _0x15220b.data.openTime == 0 &&
             (await $.wait(200), await this.openBox(true)))
-        : console.log('🟡' + this.name + '=>开宝箱次数已用完')
+        : console.log('🎈' + this.name + '=>开宝箱次数已用完')
       : _0x412555 == true
-      ? console.log('🛑' + this.name + '=>开宝箱失败：' + _0x15220b.error_msg)
+      ? console.log('🎈' + this.name + '=>开宝箱失败：' + _0x15220b.error_msg)
       : console.log(
-          '🛑' + this.name + '=>查询宝箱状态失败：' + _0x15220b.error_msg
+          '🎈' + this.name + '=>查询宝箱状态失败：' + _0x15220b.error_msg
         );
-  }
+  } */
 
 
 
@@ -226,7 +261,7 @@ class ksUser {
             _0x1fdd87
         )
       : console.log(
-          '🛑' + this.name + '=>兑换方式更改失败：' + _0x4df55c.error_msg
+          '🎈' + this.name + '=>兑换方式更改失败：' + _0x4df55c.error_msg
         );
   }
 
@@ -237,7 +272,7 @@ class ksUser {
   //金币兑换奖券
   async exchangeCoin() {
     if (this.coinBalance < 100) {
-      console.log('🛑' + this.name + '=>金币余额不足100，不执行兑换');
+      console.log('🎈' + this.name + '=>金币余额不足100，不执行兑换');
       return;
     }
 
@@ -272,7 +307,7 @@ class ksUser {
       );
     } else {
       console.log(
-        '🛑' + this.name + '=>兑换金币失败：' + _0x2ae7ad.error_msg
+        '🎈' + this.name + '=>兑换金币失败：' + _0x2ae7ad.error_msg
       );
     }
   }
@@ -300,83 +335,14 @@ class ksUser {
       ? _0x3dc187.data.isShow &&
         console.log('🎈' + this.name + '=>抽奖页签到成功')
       : (console.log(
-          '🛑' + this.name + '=>查询抽奖签到情况失败：' + _0x3dc187.error_msg
+          '🎈' + this.name + '=>查询抽奖签到情况失败：' + _0x3dc187.error_msg
         ),
         _0x3dc187.error_msg.indexOf('激励游戏未在运营') > -1 &&
           (this.hasLuckydraw = false));
   }
 
 
-  //定时奖励
 
-  async luckdrawTimerInfo() {
-    let _0x41f4dd =
-        'https://activity.e.kuaishou.com/rest/r/game/timer-reward/info',
-      _0x57d99c = '',
-      _0x188ea7 = getOptions(_0x41f4dd, this.cookie, _0x57d99c);
-
-    await doRequest('get', _0x188ea7);
-    let _0x9de9b6 = res;
-
-    if (!_0x9de9b6) {
-      return;
-    }
-
-    if (_0x9de9b6.result == 1) {
-      if (_0x9de9b6.data) {
-        let _0x53217e = new Date().getTime(),
-          _0x2d8627 = _0x9de9b6.data.lastTimerTime,
-          _0x42feaa = _0x9de9b6.data.minutesInterval * 60 * 1000,
-          _0x25bdde = _0x2d8627 + _0x42feaa;
-
-        _0x53217e < _0x25bdde
-          ? console.log(
-              '' +
-                this.name +
-                '=>抽奖页奖励冷却时间还有' +
-                (_0x25bdde - _0x53217e) / 1000 +
-                '秒'
-            )
-          : (await $.wait(200),
-            await this.luckdrawTimerReward(_0x9de9b6.data.goldNum));
-      } else {
-        console.log('🟡' + this.name + '=>抽奖页定时奖励次数已用完');
-      }
-    } else {
-      console.log(
-        '🛑' +
-          this.name +
-          '=>查询抽奖页定时奖励情况失败：' +
-          _0x9de9b6.error_msg
-      );
-    }
-  }
-
-
-  //奖励
-  async luckdrawTimerReward(_0x571114) {
-    let _0xeaee4 = 'https://activity.e.kuaishou.com/rest/r/game/timer-reward',
-      _0x4f1a45 = '',
-      _0x44f25f = getOptions(_0xeaee4, this.cookie, _0x4f1a45);
-
-    await doRequest('post', _0x44f25f);
-    let _0x3a934e = res;
-
-    if (!_0x3a934e) {
-      return;
-    }
-
-    _0x3a934e.result == 1
-      ? console.log(
-          '🎈' + this.name + '=>领取抽奖页定时奖励获得' + _0x571114 + '金币'
-        )
-      : console.log(
-          '🛑' +
-            this.name +
-            '=>领取抽奖页定时奖励失败：' +
-            _0x3a934e.error_msg
-        );
-  }
 
 
 
@@ -397,7 +363,7 @@ class ksUser {
     _0x450eae.result == 1
       ? (this.userId = _0x450eae.data.userId)
       : console.log(
-          '🛑' + this.name + '=>获取userId失败：' + _0x450eae.error_msg
+          '🎈' + this.name + '=>获取userId失败：' + _0x450eae.error_msg
         );
   }
 
@@ -423,7 +389,7 @@ class ksUser {
     _0x25e462.result == 'SUCCESS'
       ? (this.needSms = _0x25e462.need_mobile_code)
       : console.log(
-          '🛑' + this.name + '=>查询账号提现情况失败：' + _0x25e462.error_msg
+          '🎈' + this.name + '=>查询账号提现情况失败：' + _0x25e462.error_msg
         );
   }
 }
@@ -436,17 +402,12 @@ class ksUser {
   if (!(await formatCookie())) {
     return;
   }
-
-
-
-
-
-
-
-  console.log('\n============== 登录 ==============');
+  console.log('\n============== 🧨账号预览🧨 ==============');
   for (let user of Users) {
-    await user.getUserInfo();
-    await $.wait(500);
+    await u.accountOverview();
+    await $.wait(200);
+    // await user.getUserInfo();
+    // await $.wait(500);
   }
 
   let CurrentUser = Users.filter((u) => u.valid == true);
@@ -457,10 +418,7 @@ class ksUser {
     console.log('\n=========== ' + u.name + ' ===========');
     await u.getSignInfo();
     await $.wait(200);
-    await u.openBox(false);
-    await $.wait(200);
-    await u.luckydrawSign();
-    await $.wait(200);
+    //await u.openBox(false);
   }
 
 
