@@ -47,13 +47,13 @@ class ksUser {
       this.cashBalance = res.data.totalCash;
       this.coinBalance = res.data.totalCoin;
       this.allCash = res.data.allCash;
-      console.log(
+      /* console.log(
         `🎈${this.name}=>账户余额${this.cashBalance}元，${
           this.coinBalance
         }金币，未审核余额${Math.floor(
           parseFloat(this.allCash) - parseFloat(this.cashBalance)
         )}元`
-      );
+      ); */
     } else {
       console.log(`🎈${this.name}=>查询账户信息失败：${res.error_msg}`);
     }
@@ -130,7 +130,7 @@ class ksUser {
       return;
     }
     if (res.result == 1) {
-      console.log(`${this.name}=>签到成功：${res.data.toast}`);
+      console.log(`🎈${this.name}=>签到成功：${res.data.toast}`);
       await $.wait(200);
     } else {
       console.log(`🎈${this.name}=>签到失败：${res.error_msg}`);
@@ -363,7 +363,7 @@ class ksUser {
   if (!(await formatCookie())) {
     return;
   }
-  console.log('\n============== 🧨登录🧨 ==============');
+  //console.log('\n============== 🧨登录🧨 ==============');
   for (let user of Users) {
      await user.getUserInfo();
      await $.wait(500);
