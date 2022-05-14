@@ -48,14 +48,14 @@ class ksUser {
       this.coinBalance = res.data.totalCoin;
       this.allCash = res.data.allCash;
       /* console.log(
-        `🎈${this.name}=>账户余额${this.cashBalance}元，${
+        `🎉${this.name}=>账户余额${this.cashBalance}元，${
           this.coinBalance
         }金币，未审核余额${Math.floor(
           parseFloat(this.allCash) - parseFloat(this.cashBalance)
         )}元`
       ); */
     } else {
-      console.log(`🎈${this.name}=>查询账户信息失败：${res.error_msg}`);
+      console.log(`🎉${this.name}=>查询账户信息失败：${res.error_msg}`);
     }
   }
   //分享获得3000金币
@@ -69,11 +69,11 @@ class ksUser {
       return;
     }
     if (res.result == 1) {
-      console.log(`🎈${this.name}=>准备分享得金币`);
+      console.log(`🎉${this.name}=>准备分享得金币`);
       await $.wait(200);
       await this.taskReward(122);
     } else {
-      console.log(`🎈${this.name}=>分享失败：${res.error_msg}`);
+      console.log(`🎉${this.name}=>分享失败：${res.error_msg}`);
     }
   }
 //做任务
@@ -87,11 +87,11 @@ class ksUser {
     }
     if (res.result == 1) {
       console.log(
-        `🎈${this.name}=>完成任务[${taskId}]成功，获得${res.data.amount}金币`
+        `🎉${this.name}=>完成任务[${taskId}]成功，获得${res.data.amount}金币`
       );
     } else {
       console.log(
-        `🎈${this.name}=>完成任务[${taskId}]失败：${res.error_msg}`
+        `🎉${this.name}=>完成任务[${taskId}]失败：${res.error_msg}`
       );
     }
   }
@@ -106,7 +106,7 @@ class ksUser {
     }
     if (res.result == 1) {
       let todaySigned = res.data.nebulaSignInPopup.todaySigned;
-      console.log(`🎈${this.name}=>今天${todaySigned ? '已' : '未'}签到`);
+      console.log(`🎉${this.name}=>今天${todaySigned ? '已' : '未'}签到`);
       if (!todaySigned) {
         await $.wait(200);
         await this.doSign();
@@ -114,7 +114,7 @@ class ksUser {
         await this.setShare();
       }
     } else {
-      console.log(`🎈${this.name}=>查询签到信息失败：${res.error_msg}`);
+      console.log(`🎉${this.name}=>查询签到信息失败：${res.error_msg}`);
     }
   }
   
@@ -130,10 +130,10 @@ class ksUser {
       return;
     }
     if (res.result == 1) {
-      console.log(`🎈${this.name}=>签到成功：${res.data.toast}`);
+      console.log(`🎉${this.name}=>签到成功：${res.data.toast}`);
       await $.wait(200);
     } else {
-      console.log(`🎈${this.name}=>签到失败：${res.error_msg}`);
+      console.log(`🎉${this.name}=>签到失败：${res.error_msg}`);
     }
   }
 
@@ -158,7 +158,7 @@ class ksUser {
       let _0x54aac5 = _0xa69994.data.exchangeCoinState;
 
       console.log(
-        '🎈' +
+        '🎉' +
           this.name +
           '=>账户余额' +
           this.cashBalance +
@@ -170,7 +170,7 @@ class ksUser {
       _0x54aac5 == 2 && (await $.wait(200), await this.changeExchangeType(0));
     } else {
       console.log(
-        '🎈' + this.name + '=>查询账户信息失败：' + _0xa69994.error_msg
+        '🎉' + this.name + '=>查询账户信息失败：' + _0xa69994.error_msg
       );
     }
   }
@@ -196,7 +196,7 @@ class ksUser {
         ? _0x15220b.data.commonAwardPopup &&
           _0x15220b.data.commonAwardPopup.awardAmount
           ? (console.log(
-              '🎈' +
+              '🎉' +
                 this.name +
                 '=>开宝箱获得' +
                 _0x15220b.data.commonAwardPopup.awardAmount +
@@ -204,10 +204,10 @@ class ksUser {
             ),
             await $.wait(200),
             await this.ksAdParam(AdName.box))
-          : console.log('🎈' + this.name + '=>开宝箱没有获得金币')
+          : console.log('🎉' + this.name + '=>开宝箱没有获得金币')
         : _0x15220b.data.openTime > -1
         ? (console.log(
-            '🎈' +
+            '🎉' +
               this.name +
               '=>开宝箱冷却时间还有' +
               Math.floor(_0x15220b.data.openTime / 1000) +
@@ -215,11 +215,11 @@ class ksUser {
           ),
           _0x15220b.data.openTime == 0 &&
             (await $.wait(200), await this.openBox(true)))
-        : console.log('🎈' + this.name + '=>开宝箱次数已用完')
+        : console.log('🎉' + this.name + '=>开宝箱次数已用完')
       : _0x412555 == true
-      ? console.log('🎈' + this.name + '=>开宝箱失败：' + _0x15220b.error_msg)
+      ? console.log('🎉' + this.name + '=>开宝箱失败：' + _0x15220b.error_msg)
       : console.log(
-          '🎈' + this.name + '=>查询宝箱状态失败：' + _0x15220b.error_msg
+          '🎉' + this.name + '=>查询宝箱状态失败：' + _0x15220b.error_msg
         );
   } */
 
@@ -249,13 +249,13 @@ class ksUser {
 
     _0x4df55c.result == 1
       ? console.log(
-          '🎈' +
+          '🎉' +
             this.name +
             '=>兑换方式更改成功，目前兑换方式为：' +
             _0x1fdd87
         )
       : console.log(
-          '🎈' + this.name + '=>兑换方式更改失败：' + _0x4df55c.error_msg
+          '🎉' + this.name + '=>兑换方式更改失败：' + _0x4df55c.error_msg
         );
   }
 
@@ -266,7 +266,7 @@ class ksUser {
   //金币兑换奖券
   async exchangeCoin() {
     if (this.coinBalance < 100) {
-      console.log('🎈' + this.name + '=>金币余额不足100，不执行兑换');
+      console.log('🎉' + this.name + '=>金币余额不足100，不执行兑换');
       return;
     }
 
@@ -291,7 +291,7 @@ class ksUser {
         _0xd2629a = Math.floor(this.coinBalance / 100) / 100;
 
       console.log(
-        '🎈' +
+        '🎉' +
           this.name +
           '=>兑换金币成功，将' +
           _0x1e5bfa +
@@ -301,7 +301,7 @@ class ksUser {
       );
     } else {
       console.log(
-        '🎈' + this.name + '=>兑换金币失败：' + _0x2ae7ad.error_msg
+        '🎉' + this.name + '=>兑换金币失败：' + _0x2ae7ad.error_msg
       );
     }
   }
@@ -324,7 +324,7 @@ class ksUser {
     _0x450eae.result == 1
       ? (this.userId = _0x450eae.data.userId)
       : console.log(
-          '🎈' + this.name + '=>获取userId失败：' + _0x450eae.error_msg
+          '🎉' + this.name + '=>获取userId失败：' + _0x450eae.error_msg
         );
   }
 
@@ -350,7 +350,7 @@ class ksUser {
     _0x25e462.result == 'SUCCESS'
       ? (this.needSms = _0x25e462.need_mobile_code)
       : console.log(
-          '🎈' + this.name + '=>查询账号提现情况失败：' + _0x25e462.error_msg
+          '🎉' + this.name + '=>查询账号提现情况失败：' + _0x25e462.error_msg
         );
   }
 }
@@ -375,12 +375,12 @@ class ksUser {
   }
   
   for (let u of CurrentUser) {
-    console.log('\n=========== 🎈' + u.name + ' 🎈===========');
+    console.log('\n=========== 🎉' + u.name + ' 🎉===========');
     await u.getSignInfo();
     await $.wait(200);
     //await u.openBox(false);
   }
-  console.log('\n============== 🎈账户情况🎈 ==============');
+  console.log('\n============== 🎉账户情况🎉 ==============');
   for (let u of CurrentUser) {
     await u.accountOverview();
     await $.wait(200);
