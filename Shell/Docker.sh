@@ -5,7 +5,6 @@
 ## Repository: https://github.com/SuperManito/LinuxMirrors
 ##             https://gitee.com/SuperManito/LinuxMirrors
 
-
 function AuthorAutograph() {
     echo '
              __  ___          __        ____       
