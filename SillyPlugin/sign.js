@@ -1,39 +1,130 @@
-// [rule: 校园 ?]
-var CK = '你的CK';
-var param = 'answers=["0","0","0","2","0","1","1","0"]&latitude=31.775354385375977&longitude=107.56233215332031&country=%E4%B8%AD%E5%9B%BD&city=%E8%BE%BE%E5%B7%9E%E5%B8%82&district=%E4%B8%87%E6%BA%90%E5%B8%82&province=%E5%9B%9B%E5%B7%9D%E7%9C%81&township=%E6%B2%B3%E5%8F%A3%E9%95%87&street=&areacode=511781';
+// [rule: 健康打卡]
+//获取当前时间函数
+function Time() {
+    let globalDate = new Date();
+    let currentTime = globalDate.toLocaleString();
+    return currentTime;
+}
 
-//var status = 'keep-alive';
-//var host = 'student.wozaixiaoyuan.com';
-var UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.10(0x18000a2a) NetType/WIFI Language/zh_CN";
-function sign(){
-    var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-    // var Header = {
-    //     Connection:"keep-alive",
-    //     Host:"student.wozaixiaoyuan.com",
-    //     "User-Agent":'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
-    //     JWSESSION:CK
-    // };
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST","https://student.wozaixiaoyuan.com/health/save.json",true);//初始化http请求
-    //设置请求参数
-    //方法的第一个参数 header 大小写不敏感，即可以写成content-type，也可以写成Content-Type，甚至写成content-Type;
-    //setRequestHeader必须在open()方法之后，send()方法之前调用，否则会抛错；
-    //setRequestHeader可以调用多次，最终的值不会采用覆盖override的方式，而是采用追加append的方式。
-    xhr.setRequestHeader("JWSESSION", CK);
-    //xhr.setRequestHeader('Connection', status);
-    //xhr.setRequestHeader('Host', host);
-    xhr.setRequestHeader("User-Agent", UA);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-    //xhr.setRequestHeader("Referer","https://servicewechat.com/wxce6d08f781975d91/183/page-frame.html")
-    //xhr.setRequestHeader("Accept-Encoding","gzip,compress,br,deflate")
-    xhr.send(param);
-    xhr.onreadystatechange = function(){   
-        if(xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText+"\n打卡成功啦~");
-          }                                  
-        }   
-    //sendText(xhr.responseText);
-    //提交表单后，服务端收到的数据是乱码
+var qq = GetUserID();
+var CK = bucketGet('signck',qq);
+//var param = bucketGet('signparam',qq);
+if (CK == '') {
+    sendText("状态:没有找到COOKIE"+"\n"+"时间:"+Time());
+    main();
+}else {
+    Check();
     
 }
-sign();
+var MYAPP = {};
+
+function Check(){
+    const url = 'https://gw.wozaixiaoyuan.com/health/mobile/health/getBatch'
+    let userCk = bucketGet('signck',qq);
+    rst = request({
+        url:url,//必须
+        method:"post",//get,post,put,delete,可选,默认get
+        headers:{
+            'User-Agent':' Mozilla/5.0 (iPhone; CPU iPhone OS 15_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.20(0x18001423) NetType/WIFI Language/zh_CN',
+            'JWSESSION':userCk,
+            'content-type': 'application/x-www-form-urlencoded'
+        },//可选
+        // body:data.SWPU,//可选
+        dataType:"json",//location=>重定向url,json=>尝试解析为对象,否则为body字符串,可选
+        useproxy:false,//可选
+    })//发送请求
+    let status = rst.code
+    if (status == 0) {
+        signin();
+    }else{
+        sendText("状态:COOKIE失效，请更新"+"\n"+"时间:"+Time());
+        main();
+    }
+}
+
+
+function getBatcId(){
+    const url = 'https://gw.wozaixiaoyuan.com/health/mobile/health/getBatch'
+    let userCk = bucketGet('signck',qq);
+    rst = request({
+        url:url,//必须
+        method:"post",//get,post,put,delete,可选,默认get
+        headers:{
+            'User-Agent':' Mozilla/5.0 (iPhone; CPU iPhone OS 15_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.20(0x18001423) NetType/WIFI Language/zh_CN',
+            'JWSESSION':userCk,
+            'content-type': 'application/x-www-form-urlencoded'
+        },//可选
+        // body:data.SWPU,//可选
+        dataType:"json",//location=>重定向url,json=>尝试解析为对象,否则为body字符串,可选
+        useproxy:false,//可选
+    })//发送请求
+    let BatchId = rst.data.list[0].id
+    return BatchId
+}
+
+
+
+function main() {
+    sleep(1000);
+    sendText("状态:请在30秒之内输入你的CCOOKIE"+"\n"+"时间:"+Time());
+    inCk = input (30000);
+    var arr = ['q','Q','退出'];
+    if (inCk && inCk.length === 32) {
+        bucketSet('signck',qq,inCk);
+        sendText("状态:COOKIE已记录\n信息:如需更改请联系管理员"+"\n"+"时间:"+Time());
+        //getParam();
+        sleep(1000);
+        sendText("状态:即将开始打卡"+"\n"+"时间:"+Time());
+        signin();
+    }else if (arr.indexOf(inCk) != -1) {} else {
+        sendText("状态:输入有误，请重新开始录入"+"\n"+"时间:"+Time());
+    }
+
+}
+
+
+/* function getParam() {
+    sendText("请在30秒之内输入你的Param");
+    inParam = input (30000);
+    sendText("Param已记录\n如需更改请联系管理员");
+    bucketSet('signparam',qq,inParam);
+} */
+function signin() {
+    const punchUrl = "https://gw.wozaixiaoyuan.com/health/mobile/health/save?batch="+getBatcId()
+    let userCk = bucketGet('signck',qq);
+    let userName = GetUsername();
+    const data = {
+        "location" : "中国/四川省/达州市/万源市/河口镇//156/511781/156511700/511781104",
+        "t4" : "未列为风险区",
+        "t7" : "已全部接种（含加强针）",
+        "t2" : "无不适症状",
+        "locationType" : 0,
+        "t5" : "正常",
+        "t3" : "暑假已离校",
+        "type" : 0,
+        "t6" : "正常",
+        "t1" : "[\"无下列情况\"]"
+      }
+      
+    rst = request({
+        url:punchUrl,//必须
+        method:"post",//get,post,put,delete,可选,默认get
+        headers:{
+            'User-Agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 15_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.25(0x18001927) NetType/WIFI Language/zh_CN miniProgram/wxce6d08f781975d91',
+            'JWSESSION':userCk,
+            'content-type': 'application/json;charset=UTF-8',
+            'Referer':"https://gw.wozaixiaoyuan.com/h5/mobile/health/index/health/detail?id="+getBatcId()
+        },//可选
+        body:data,//可选
+        dataType:"json",//location=>重定向url,json=>尝试解析为对象,否则为body字符串,可选
+        useproxy:false,//可选
+    })//发送请求
+    let code = rst.code;
+    if (code == '0') {
+        sendText("用户名:"+userName+"\n状态:打卡成功\n"+"时间:"+Time());
+    }
+    else {
+        let msg = rst.message;
+        sendText("状态:打卡失败\n"+"信息:"+msg+"\n"+"时间:"+Time());
+    }
+}
