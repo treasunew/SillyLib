@@ -204,9 +204,10 @@ async def main():
                 for i in range(onePageNumber):
                     giftName  = result['data']['list'][i]['award_name']
                     giftAnchor = result['data']['list'][i]['anchor_name']
+                    giftTime = result['data']['list'][i]['end_time']
                     print(f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
-                    print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName+"\n")
-                    await asyncio.sleep(2)
+                    print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName)
+                    print(f"[{getCurrentTime()} INF]"+" "+f"【中奖时间】"+giftTime+"\n")
                     
                 
     else:
