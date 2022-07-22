@@ -201,7 +201,7 @@ async def main():
                         giftAnchor = result['data']['list'][i]['anchor_name']
                         print(f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
                         print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName+"\n")
-                await asyncio.sleep(2)
+                        await asyncio.sleep(2)
                     
                 
     else:
