@@ -208,7 +208,7 @@ async def main():
                     print(f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
                     print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName)
                     print(f"[{getCurrentTime()} INF]"+" "+f"【中奖时间】"+giftTime+"\n")
-                    
+                    await asyncio.sleep(2)
                 
     else:
         print(f"请检查是否填写变量biliCookie")        
