@@ -22,12 +22,13 @@ new Env('天选时刻奖品');
 ------------
 环境变量说明
 biliCookie 
+多账号用@隔开
 浏览器打开并登录 bilibili 网站
 登录成功后，访问 https://api.bilibili.com/x/web-interface/nav，按 F12 打开"开发者工具"，按 F5 刷新一下
 在"开发者工具"面板中，点击 网络（Network），在左侧的请求列表中，找到名称为 nav 的接口，点击它
 依次查找 Headers ——> RequestHeader ——> cookie，可以看到很长一串以英文分号分隔的字符串，复制整个这个cookie字符串（不要使用右键复制，请使用 Ctrl+C 复制，部分浏览器右键可能会进行 UrlDecode ）
 
-
+# 暂时没有推送
 PMODE: 推送模式 || PKEY: 具体推送格式填写（不带 [TG: ]，请用具体的值代替)
 wx                [Server 酱: skey]
 nwx               [新 Server 酱: skey]
