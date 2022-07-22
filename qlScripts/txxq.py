@@ -201,12 +201,12 @@ async def main():
                     # print(result)
                     onePageNumber = len(result['data']['list'])         
                     # print(onePageNumber)                               
-                    for i in range(onePageNumber):
-                        giftName  = result['data']['list'][i]['award_name']
-                        giftAnchor = result['data']['list'][i]['anchor_name']
-                        print("\n"+f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
-                        print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName+"\n")
-                        await asyncio.sleep(2)
+                for i in range(onePageNumber):
+                    giftName  = result['data']['list'][i]['award_name']
+                    giftAnchor = result['data']['list'][i]['anchor_name']
+                    print("\n"+f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
+                    print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName+"\n")
+                    await asyncio.sleep(2)
                     
                 
     else:
