@@ -198,7 +198,7 @@ async def main():
                 for currentPage in range(1,int(totalPages)):
                 # currentPage = 1
                     result = await getRewardInfo(ua,ck,currentPage=currentPage)
-                    print(result)
+                    # print(result)
                     onePageNumber = len(result['data']['list'])         
                     print(onePageNumber)                               
                     for i in range(onePageNumber):
