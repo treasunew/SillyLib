@@ -194,7 +194,7 @@ async def main():
             print(f"[{getCurrentTime()} INF]"+" "+" 共获得"+str(totalGift)+"个奖品")            
             await asyncio.sleep(2)
             if result['code'] == 0:
-                print(f"[{getCurrentTime()} INF] "+" "+"开始列出前20个奖品")
+                print(f"[{getCurrentTime()} INF] "+" "+"开始列出前20个奖品"+'\n')
                 # currentPage = 1
                 result = await getRewardInfo(ua,ck,currentPage=1)
                 # print(result)
