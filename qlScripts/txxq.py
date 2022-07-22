@@ -91,6 +91,9 @@ def randomuserAgent():
  """
 
 # 获取当前时间
+# now = time.strftime("%H:%M:%S", time.localtime())
+
+
 def getCurrentTime():
     now = time.strftime("%H:%M:%S", time.localtime())
     return now
@@ -167,7 +170,7 @@ async def main():
         with open('cklist.txt','r') as f:
             cks  = f.read().split('\n')
     if cks:
-        print(f'{taskname}', flush=True)
+        print(f'🔔{taskname}', flush=True)
         print(f'==================共{len(cks)}个账号=================')
         print(f'==================脚本执行- 北京时间(UTC+8)：{getCurrentTime()}=====================\n')
         for n,ck in enumerate(cks):
@@ -188,18 +191,20 @@ async def main():
             totalGift = result['data']['total_count']
             totalPages = result['data']['page_count']
             # print(totalPages)
-            print(f"[{getCurrentTime()} INF]"+"  "+" 共获得"+str(totalGift)+"个奖品")            
+            print(f"[{getCurrentTime()} INF]"+" "+" 共获得"+str(totalGift)+"个奖品")            
             await asyncio.sleep(2)
             if result['code'] == 0:
-                print(f"[{getCurrentTime()} INF] "+"  "+"开始列出奖品")
-                #for currentPage in range(1,totalPages):
+                print(f"[{getCurrentTime()} INF] "+" "+"开始列出前20个奖品")
+                for currentPage in range(1,int(totalPages)):
                 # currentPage = 1
-                    #result = await getRewardInfo(ua,ck,currentPage=currentPage)
-                    #print(result)                                        
-                for i in range(len(result['data']['list'])):
+                    result = await getRewardInfo(ua,ck,currentPage=currentPage)
+                    # print(result)
+                    onePageNumber = len(result['data']['list'])         
+                    # print(onePageNumber)                               
+                    for i in range(onePageNumber):
                         giftName  = result['data']['list'][i]['award_name']
                         giftAnchor = result['data']['list'][i]['anchor_name']
-                        print(f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
+                        print("\n"+f"[{getCurrentTime()} INF]"+" "+f"【主播{i+1}】"+giftAnchor)                    
                         print(f"[{getCurrentTime()} INF]"+" "+f"【奖品{i+1}】"+giftName+"\n")
                         await asyncio.sleep(2)
                     
