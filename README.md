@@ -1,7 +1,7 @@
 [![Treasunew's GitHub stats](https://github-readme-stats.vercel.app/api?username=treasunew&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
 # SillyLib
 自用的插件、软件、脚本集合  
-TG群[TelegramChanne](https://t.me/PorterTree)
+TG群[TelegramChannel](https://t.me/PorterTree)
 集合了自己平时自己写的一些使用的小脚本还有网上搜罗的其他大佬写的脚本
 ## ⭐️工具
 * Loon
