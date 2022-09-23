@@ -1,6 +1,7 @@
 /**
 环境变量：elmck 多个账号用@或者隔开
 */
+/* 脚本仅可本地使用 */
 const axios = require('axios')
 const crypto = require('crypto-js')
 
