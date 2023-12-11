@@ -1,0 +1,13 @@
+# > for chatgpt
+HOST-SUFFIX,ai.com,Proxy
+HOST-SUFFIX,chatgpt.com,Proxy
+HOST-SUFFIX,oaistatic.com,Proxy
+HOST-SUFFIX,oaiusercontent.com,Proxy
+HOST-SUFFIX,openai.com,Proxy
+
+# > for chatgpt api&cdn
+HOST,chat.openai.com.cdn.cloudflare.net,Proxy
+HOST,openaiapi-site.azureedge.net,Proxy
+HOST,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,Proxy
+HOST,openaicomproductionae4b.blob.core.windows.net,Proxy
+HOST,production-openaicom-storage.azureedge.net,Proxy
