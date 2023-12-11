@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # from email import header
 # import random
-import requests;
+import requests
 import json
 import re
 import os
