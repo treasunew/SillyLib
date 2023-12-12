@@ -103,6 +103,9 @@ class XSTL:
         # print(self.id_values)
         
     def read_article(self):
+        # 再次判断数据是否为空
+        if not self.id_values:
+            return
         print(f"\n------------[账号{self.num}]开始阅读文章------------")
         print(f"[INFO] {self.id_values}")
         for index, id in enumerate(self.id_values, start=1):
@@ -134,6 +137,8 @@ class XSTL:
         #         print(f"[INFO] {artid}阅读状态: {resp['message']}")
             
     def start_lottery(self):
+        if not self.data:
+            return
         print(f"\n--------------[账号{self.num}]开始抽奖--------------")
         for i in range(3):
             # 获取抽奖机会
