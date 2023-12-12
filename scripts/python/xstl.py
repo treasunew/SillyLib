@@ -86,6 +86,9 @@ class XSTL:
             'accept-language': "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7"
         }
         res = requests.get(url, headers=headers)
+        if not res.text:
+            print(f'[INFO] 账号{num}已失效, 请重新获取CK')
+            return
         # print(res.text)
         cookies = res.cookies
         self.cookie_string = ";".join(
