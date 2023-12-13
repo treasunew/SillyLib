@@ -10,6 +10,7 @@ import json
 Author: 羊毛出在羊身上
 Date: 2023.12.02
 cron: 0 9 * * *
+new Env('潇洒桐庐')
 --------------------
 环境变量: xstlck 示例: channelid#userid#sessionid
 多账号: & 或者 换行
