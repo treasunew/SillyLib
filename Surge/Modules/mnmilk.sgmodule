@@ -1,0 +1,9 @@
+#!name=点亮蒙牛
+#!desc=点亮我的心
+
+[Script]
+# > 修改返回体，使按钮变亮
+mnmilk = type=http-response, pattern=^http[s]?:\/\/mp-isv\.youzanyun\.com\/point\/item\/getItemDetail, script-path=https://mirror.945688.xyz/https://raw.githubusercontent.com/treasunew/SillyLib/main/Surge/Scripts/mnmilk.js, requires-body=true, max-size=-1, timeout=60
+
+[MITM]
+hostname = %APPEND% mp-isv.youzanyun.com
