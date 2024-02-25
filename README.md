@@ -12,6 +12,7 @@
 > Python 
 > Nodejs 
 > Shell
+> binary
 - 本地
 > Python3.10 
 > ^16 || ^18 || ^19 (node >= 14)
