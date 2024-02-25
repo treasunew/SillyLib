@@ -22,7 +22,8 @@ if (url.indexOf(u1) != -1){
 
 	obj['data']['isExchange'] = true;
 	body = JSON.stringify(obj);
-
+    $notify("点亮人生", "蒙牛营养家", "点亮成功")
+    
 }else if (url.indexOf(u2) != -1){
 
 	obj['data']['is_not_time_exchange'] = 0;
@@ -35,5 +36,5 @@ if (url.indexOf(u1) != -1){
 	//body = JSON.stringify(obj);
 	$done();
 }
-$notify("点亮人生", "蒙牛营养家", "点亮成功")
+
 $done(body);
