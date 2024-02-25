@@ -10,6 +10,7 @@ if (url.indexOf(u1) != -1){
 
 	obj['data']['isExchange'] = true;
 	body = JSON.stringify(obj);
+    $notification.post("点亮人生", "蒙牛营养家", "点亮成功");
 
 }else if (url.indexOf(u2) != -1){
 
@@ -23,5 +24,5 @@ if (url.indexOf(u1) != -1){
 	//body = JSON.stringify(obj);
 	$done();
 }
-$notification.post("点亮人生", "蒙牛营养家", "点亮成功")
+
 $done({body: body});
