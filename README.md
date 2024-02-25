@@ -1,18 +1,20 @@
-[![Treasunew's GitHub stats](https://github-readme-stats.vercel.app/api?username=treasunew&show_icons=true&theme=shadow_red)](https://github.com/anuraghazra/github-readme-stats)
 ## SillyLib
-自用的插件、软件、脚本集合  [Telegram](https://t.me/PorterTree)
+自用的插件、工具、脚本集合  [Telegram](https://t.me/PorterTree)
 
 ### 代理工具
 > [!NOTE]
-> 1. Loon
+> 1. Loon(推荐)
 > 2. QuantumultX
-> 3. ShadowRocket
-> 4. Surge
+> 3. ShadowRocket(推荐)
+> 4. Surge(推荐)
 ### 脚本运行环境
 - 青龙
-> python nodejs shell
+> Python 
+> Nodejs 
+> Shell
 - 本地
-> python3.10 nodejs18.16.1
+> Python3.10 
+> ^16 || ^18 || ^19 (node >= 14)
 ### 免责声明
 > [!IMPORTANT]
 > 1. 此项目中的脚本仅用于学习研究，不保证其合法性、准确性、有效性，请根据情况自行判断，本人对此不承担任何保证责任。
