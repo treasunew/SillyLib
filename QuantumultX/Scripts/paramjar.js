@@ -3,9 +3,9 @@
 [rewrite_local]
 # > 抓openid和id
 # > 抓openid和accesstoken
-^http[s]?:\/\/zaocan\.javamall\.cn\/zaocan-api\/member\/userMember url script-response-body yyz.js
-^http[s]?:\/\/wx-camp-180-02-applet-api\.mscampapi\.digitalyili\.com\/home\/page\/get\/game\/open\/time url script-request-header yyz.js
-^http[s]?:\/\/wx-camp-180-02-applet-api\.mscampapi\.digitalyili.com\/home\/page\/get\/task\/red\/hint url script-request-header yyz.js
+^http[s]?:\/\/zaocan\.javamall\.cn\/zaocan-api\/member\/userMember url script-response-body https://mirror.945688.xyz/https://raw.githubusercontent.com/treasunew/SillyLib/main/QuantumultX/Scripts/paramjar.js
+^http[s]?:\/\/wx-camp-180-02-applet-api\.mscampapi\.digitalyili\.com\/home\/page\/get\/game\/open\/time url script-request-header https://mirror.945688.xyz/https://raw.githubusercontent.com/treasunew/SillyLib/main/QuantumultX/Scripts/paramjar.js
+^http[s]?:\/\/wx-camp-180-02-applet-api\.mscampapi\.digitalyili.com\/home\/page\/get\/task\/red\/hint url script-request-header https://mirror.945688.xyz/https://raw.githubusercontent.com/treasunew/SillyLib/main/QuantumultX/Scripts/paramjar.js
 
 [mitm]
 hostname = zaocan.javamall.cn, wx-camp-180-02-applet-api.mscampapi.digitalyili.com
