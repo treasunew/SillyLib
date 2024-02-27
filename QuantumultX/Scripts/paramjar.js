@@ -28,7 +28,7 @@ if (url.indexOf(u1) != -1){
 	var msg = 'id: '+ id + '\nopenid: ' +openid;
 	$notify(title, subtitle, msg);
 	
-}else if(url.includes("?openId=")){ // (url.indexOf(u2) != -1)
+}else if((url.indexOf(u2) != -1)){ // url.includes("?openId=")
 	var headers = $request.headers;
 	// console.log(`Headers: ${headers}`)
 	var openId = url.match(/openId=([^&]*)/)[1];
