@@ -21,8 +21,8 @@ if (url.indexOf(u1) != -1){
 	
 }else{
 	//obj['flag'] = 0;
-	//body = JSON.stringify(obj);
-	$done();
+	body = JSON.stringify(obj);
+	// $done({body: body});
 }
 
 $done({body: body});
