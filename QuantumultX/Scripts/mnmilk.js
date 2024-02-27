@@ -28,13 +28,13 @@ if (url.indexOf(u1) != -1){
 
 	obj['data']['is_not_time_exchange'] = 0;
 	obj['data']['spu']['exchange_limit']['exchange_type_value'] = 1;
-	//obj['data']['spu']['exchange_channel'] = 0
+	// obj['data']['spu']['exchange_channel'] = 0
 	body = JSON.stringify(obj);
 	
 }else{
-	//obj['flag'] = 0;
-	//body = JSON.stringify(obj);
-	$done();
+	// obj['flag'] = 0;
+	body = JSON.stringify(obj);
+	// $done();
 }
 
 $done(body);
