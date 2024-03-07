@@ -11,7 +11,7 @@
 ===========================================
 [rewrite_local]
 # > 同步环境变量到青龙
-^http[s]?:\/\/qnyk\.qnzjzk\.cn\:9090\/applet\/user\/getuserliulancollect url script-request-header skkp.js
+^http[s]?:\/\/qnyk\.qnzjzk\.cn\:9090\/applet\/wechat\/hasUnionId url script-request-header skkp.js
 [mitm]
 hostname=qnyk.qnzjzk.cn
 **/
@@ -99,20 +99,29 @@ function updateEnv(token, result) {
   let hijack = { remarks, value, name, id };
   console.log("修改前：" + JSON.stringify(hijack));
   let formerValue = hijack.value;
+  formerValue = removeDuplicate(formerValue);
+  console.log("去重后の结果: " + formerValue)
   // let updateValue = 'success';
   let arr = formerValue.split("==");
-  for (let i = 0; i < arr.length; i++) {
-    let subArr = arr[i].split("@");
-    if (subArr[0] == key) {
-      subArr[1] = updateValue;
-      arr[i] = subArr.join("@");
-      break;
-    } else {
-      arr.push(`${key}@${updateValue}`);
-      console.log(`${key}@${updateValue}添加成功`);
+  if (formerValue.includes(key)) {
+    arr.push(`${key}@${updateValue}`);
+    console.log(`${key}@${updateValue}添加成功`);
+    // let title = "善康科普";
+    // let subtitle = "";
+    // let msg = `${key}已添加`;
+    // $notify(title, subtitle, msg);
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      let subArr = arr[i].split("@");
+      if (subArr[0] == key) {
+        subArr[1] = updateValue;
+        arr[i] = subArr.join("@");
+        break;
+      }
     }
   }
-  hijack.value = arr.join("==");
+
+  hijack.value =removeDuplicate(arr.join("=="));
   console.log("修改后：" + JSON.stringify(hijack));
 
   $task
@@ -139,6 +148,27 @@ function updateEnv(token, result) {
         $done({});
       }
     );
+}
+
+function removeDuplicate(str) {
+   const fields = str.split("==");
+   // 初始化一个对象来存储每个前缀最后一次出现的字段
+   const latestPrefixes = {};
+
+   // 遍历字段数组
+   fields.forEach(field => {
+       // 获取当前字段的前缀（"@"之前的部分）
+       const prefix = field.split("@")[0];
+       // 更新这个前缀对应的字段为当前字段，无论是否遇到过这个前缀
+       latestPrefixes[prefix] = field;
+   });
+
+   // 从latestPrefixes对象中提取值组成最终结果的字段数组
+   const resultFields = Object.values(latestPrefixes);
+
+   // 使用分隔符将处理后的字段数组重新组合成字符串
+   const result = resultFields.join("==");
+   return result;
 }
 
 // 开始执行脚本
