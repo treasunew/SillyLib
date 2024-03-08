@@ -104,13 +104,6 @@ function updateEnv(token, result) {
   // let updateValue = 'success';
   let arr = formerValue.split("==");
   if (formerValue.includes(key)) {
-    arr.push(`${key}@${updateValue}`);
-    console.log(`${key}@${updateValue}添加成功`);
-    // let title = "善康科普";
-    // let subtitle = "";
-    // let msg = `${key}已添加`;
-    // $notify(title, subtitle, msg);
-  } else {
     for (let i = 0; i < arr.length; i++) {
       let subArr = arr[i].split("@");
       if (subArr[0] == key) {
@@ -119,6 +112,17 @@ function updateEnv(token, result) {
         break;
       }
     }
+    let title = "善康科普";
+    let subtitle = "";
+    let msg = `${key}已更新`;
+    $notify(title, subtitle, msg);
+  } else {
+    arr.push(`${key}@${updateValue}`);
+    console.log(`${key}@${updateValue}添加成功`);
+    let title = "善康科普";
+    let subtitle = "";
+    let msg = `${key}已添加`;
+    $notify(title, subtitle, msg);
   }
 
   hijack.value =removeDuplicate(arr.join("=="));
@@ -137,10 +141,6 @@ function updateEnv(token, result) {
     .then(
       response => {
         console.log("更新环境变量の结果：" + response.body);
-        let title = "善康科普";
-        let subtitle = "";
-        let msg = `${key}已更新`;
-        $notify(title, subtitle, msg);
         $done({});
       },
       error => {
