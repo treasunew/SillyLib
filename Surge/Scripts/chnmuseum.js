@@ -249,7 +249,7 @@ if (url.includes("/prod-api/basesetting/HallSetting/ingore/gainAllSystemConfig")
                 // Apply status and ticketPool modifications after today=1, unless status is 0
                 if (foundToday && item.status !== 0 && item.status != -1) {
                     item.status = 4; // Set status to 4 for entries after today=1, unless status is 0
-                    item.ticketPool = 100; // Set ticketPool to 100 for entries after today=1, unless status is 0
+                    //item.ticketPool = 100; // Set ticketPool to 100 for entries after today=1, unless status is 0
                 }
                 if (item.today === 1) {
                     foundToday = true; // Mark today=1 but do not modify this entry
