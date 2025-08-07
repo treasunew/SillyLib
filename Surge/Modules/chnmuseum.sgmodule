@@ -3,7 +3,7 @@
 
 [Script]
 # > 修改返回体，使按钮变亮
-chnmuseum = type=http-response, pattern=^https:\/\/wapticket\.chnmuseum\.cn\/prod-api\/basesetting\/HallSetting\/ingore\/gainAllSystemConfig\?channel=wxMini&requestTaskKey=gainAllSystemConfigLogin&ticketUseType=1&p=wxmini$, script-path=https://mirror.945688.xyz/https://raw.githubusercontent.com/treasunew/SillyLib/refs/heads/main/Surge/Scripts/chnmuseum.js, requires-body=true, timeout=60
+chnmuseum = type=http-response, pattern=^https:\/\/wapticket\.chnmuseum\.cn\/prod-api\/basesetting\/HallSetting\/ingore\/gainAllSystemConfig\?channel=wxMini&requestTaskKey=gainAllSystemConfigLogin&ticketUseType=1&p=wxmini$, script-path=https://mirror.945688.xyz/https://raw.githubusercontent.com/treasunew/SillyLib/refs/heads/main/Surge/Scripts/chnmuseum.js, requires-body=true, max-size=2097152, timeout=60
 
 [MITM]
 hostname = %APPEND% wapticket.chnmuseum.cn
